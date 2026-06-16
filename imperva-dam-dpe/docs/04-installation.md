@@ -1,0 +1,157 @@
+## 6. Deployment at DPE — Installation Procedure
+
+The deployment was performed on a **designated test database environment** rather than the live IPEMIS production servers. This approach allows policy tuning, baseline establishment, and verification before any production change.
+
+### Phase 0 — Agent Installation on the Database Server
+
+**Step 1: Download the reconnaissance script**
+```bash
+# Access Imperva FTP server
+# Navigate to: /misc/
+# Download: which_ragent.sh
+```
+
+**Step 2: Identify the correct agent package**
+```bash
+chmod +x which_ragent.sh
+./which_ragent.sh
+# Script analyses OS version, kernel version, and architecture
+# Outputs the exact agent package name compatible with this system
+```
+
+**Step 3: Retrieve the agent package**
+```
+# Return to Imperva FTP
+# Download: the recommended .bsx binary package
+# Download: the corresponding KABI file (if required by kernel version)
+```
+
+**Step 4: Execute the installer**
+```bash
+# Run as root
+./install.sh
+# OR
+./agent_package.bsx
+# Provide the KABI file path when prompted (Linux/Oracle deployments)
+# The installer hooks the agent into the OS kernel
+```
+
+**Step 5: Configure the agent to point to the Gateway**
+```bash
+# During or after installation, configure:
+# Gateway IP address: <gateway_ip>
+# Gateway Port: 443
+# SSL: enabled
+# This establishes the secure forwarding tunnel
+```
+
+---
+
+### Phase 1 — Logical Infrastructure Setup in MX Console
+
+**Navigation:** `Main > Setup > Sites`
+
+1. Create a new **Site** — the top-level container (e.g., `DPE_Datacenter`)
+2. Under the Site, create a **Server Group** — organise by OS/DB type:
+   - `windows_server_db` — for Windows-hosted databases (MS SQL)
+   - `linux_oracle_db` — for Linux-hosted databases (Oracle)
+3. Under the Server Group, add a **Server**:
+   - Provide the exact **IP address** of the database host
+   - Provide the exact **Hostname** of the database host
+4. Under the Server, add a **Database Service**:
+   - Select the database type: `MsSql` / `Oracle` / `MySql` / `Postgres`
+   - Define the listening port: `1433` (MS SQL) or `1521` (Oracle)
+
+> **Pro-Tip:** If the database sits behind a load balancer, configure the **Forwarded Connections** section in the Service's Operation tab. Use `X-Forwarded-For` for F5/Cisco load balancers, or `True-Client-IP` for Akamai.
+
+---
+
+### Phase 2 — Gateway Listener Configuration
+
+**Navigation:** `Main > Setup > Gateways`
+
+1. Select your active Gateway from the list
+2. Confirm an **Agent Listener** is active
+3. Standard configuration:
+   - **Port:** `443`
+   - **SSL:** Enabled
+4. All traffic from agents to the Gateway is encrypted in transit
+
+---
+
+### Phase 3 — Agent Assignment & Service Mapping
+
+**Navigation:** `Main > Setup > Agents`
+
+1. Locate the newly installed agent — it appears **automatically** once the OS-level installation points to the Gateway (this confirms the network path is open)
+2. Select the agent → go to the **Settings tab**
+3. **Assign** the agent to the Server Group created in Phase 1
+4. **Enable Agent Monitoring** specifically for the Database Service created in Phase 1
+
+---
+
+### Phase 4 — Data Interface Binding *(Critical Step)*
+
+**Navigation:** `Main > Setup > Agents > [Your Agent] > Data Interfaces tab`
+
+This is the most important configuration step. Without it, local DBA sessions are completely invisible.
+
+1. Select your agent and click the **Data Interfaces** tab
+2. On the right side, view **Discovered Data Interfaces** — the agent automatically detects active protocols on the server
+
+3. **For Windows / MS SQL Server:**
+
+   | Interface | Purpose | Action |
+   |---|---|---|
+   | `MssQL IPC` | Local SQL Server Management Studio (SSMS) sessions | Un-ignore ✔ |
+   | `TCP` | Remote application and user connections | Un-ignore ✔ |
+
+4. **For Linux / Oracle:**
+
+   | Interface | Purpose | Action |
+   |---|---|---|
+   | `Oracle BEQ` | Local `sqlplus` terminal sessions (same server) | Un-ignore ✔ |
+   | `Oracle IPC` | Local inter-process communication sessions | Un-ignore ✔ |
+   | `TCP` | Remote application and user connections | Un-ignore ✔ |
+
+5. For every un-ignored interface, set the **Service** drop-down to match the exact Database Service created in Phase 1
+6. Click **Save**
+
+> **Why this matters:** Network firewalls only see TCP connections from remote hosts. A DBA who logs directly into the database server via a local terminal uses IPC/BEQ — completely bypassing the network layer. Without binding these interfaces, that entire category of administrative activity is a blind spot.
+
+---
+
+### Phase 5 — Live Verification
+
+**Navigation:** `Main > Audit > DB Audit Data`
+
+1. Select the **Data view** in the left-hand menu
+2. Execute test queries directly on the database:
+   - Remote query via application simulation
+   - Local query directly on the server as an administrator
+3. Set **Time Frame** to `Last Hour`
+4. Click **Update**
+5. Both query types should appear in the audit log ✔
+
+**What this confirms:**
+- The agent is successfully capturing and forwarding traffic
+- The Gateway is successfully parsing SQL and identifying users
+- The MX is successfully storing tamper-proof audit records
+- Both remote AND local admin sessions are visible
+
+---
+
+### Verifying Database Site Objects
+
+After deployment, verify foundational settings before enforcing policies:
+
+**Navigation:** `Main > Setup > Sites > [Your Server Group]`
+
+- **Definitions tab → Operation Mode:** Confirm it is set to `Simulation` (never start in Active)
+- **Protected IP Addresses:** Confirm the correct database IP is listed
+- **Database Service → Definitions tab → Ports:** Confirm the correct listening port is listed (e.g., `1433`, `1521`)
+
+
+---
+
+[← Back to README](../README.md)
