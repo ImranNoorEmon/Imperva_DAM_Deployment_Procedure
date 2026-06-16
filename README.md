@@ -1,12 +1,12 @@
 <div align="center">
 
-# 🛡️ Imperva SecureSphere DAM
+# Imperva SecureSphere DAM
 ### Database Activity Monitoring — Deployment & Operations Reference
 
 **Deployed at:** Directorate of Primary Education (DPE), Bangladesh  
 **Deployed by:** Infosonik Systems Limited — Professional Services Division  
 **Environment:** Test Database (Pre-Production Validation)  
-**Year:** 2025
+**Year:** 2026
 
 ---
 
@@ -19,7 +19,7 @@
 
 ---
 
-## 📖 What Is This Repository?
+## What Is This Repository?
 
 This repository is the **complete technical reference** for the Imperva SecureSphere Database Activity Monitoring (DAM) solution deployed for the Directorate of Primary Education (DPE) of Bangladesh by Infosonik Systems Limited.
 
@@ -34,7 +34,7 @@ This documentation is intended to serve as:
 
 ---
 
-## 🏛️ Project Context
+## Project Context
 
 The **Directorate of Primary Education (DPE)** is a government agency under the Ministry of Primary and Mass Education, Bangladesh. DPE manages the primary education infrastructure nationwide, including the **IPEMIS** (Integrated Primary Education Management Information System) platform, which stores the Personal Identifiable Information (PII) of millions of students, teachers, and administrative staff.
 
@@ -49,10 +49,10 @@ Imperva SecureSphere DAM was selected to:
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
-imperva-dam-dpe/
+Imperva_DAM_Deployment_Procedure/
 │
 ├── README.md                          ← You are here — project overview & navigation
 ├── LICENSE                            ← MIT License
@@ -88,7 +88,7 @@ imperva-dam-dpe/
 
 ---
 
-## 🚀 Quick Navigation
+## Quick Navigation
 
 | I want to… | Go to |
 |---|---|
@@ -115,7 +115,7 @@ imperva-dam-dpe/
 
 ---
 
-## 🏗️ Technology Stack
+## Technology Stack
 
 | Component | Details |
 |---|---|
@@ -131,7 +131,7 @@ imperva-dam-dpe/
 
 ---
 
-## 📋 Deployment Summary
+## Deployment Summary
 
 | Item | Detail |
 |---|---|
@@ -145,14 +145,14 @@ imperva-dam-dpe/
 
 ---
 
-## 📜 License
+## License
 
 This documentation is released under the [MIT License](./LICENSE).  
 The Imperva SecureSphere product is proprietary software owned by Imperva, Inc. This repository contains only operational documentation, procedures, and reference material — not any Imperva software or proprietary source code.
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 This is an internal professional services reference maintained by Infosonik Systems Limited. If you are a team member and identify errors, missing procedures, or updated navigation paths following a SecureSphere version update, please open a pull request with a clear description of what changed and why.
 
@@ -167,7 +167,7 @@ This is an internal professional services reference maintained by Infosonik Syst
 
 ---
 
-## 📎 Appendix — Summary & Production Readiness
+## Appendix — Summary & Production Readiness
 
 *The following closing sections (Risk Elimination Summary, Conclusion & Production Readiness, and References) are retained here in full from the master documentation.*
 
