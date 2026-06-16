@@ -83,7 +83,7 @@ Imperva_DAM_Deployment_Procedure/
 │       └── 21-reporting.md                    ← Report engine, scheduling, compliance reports
 │
 └── presentations/
-    └── Imperva_DAM_DPE_30Slides.pptx  ← Executive/client-facing presentation deck
+    └── Imperva_DAM.pptx  ← Executive/client-facing presentation deck
 ```
 
 ---
