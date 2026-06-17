@@ -24,7 +24,7 @@ Imperva DAM uses a **three-tier decoupled architecture** that separates traffic 
 │   DATABASE SERVER   │         │      GATEWAY         │        │    MX MANAGEMENT SERVER │
 │                     │         │                      │        │                         │
 │  ┌───────────────┐  │  SSL    │  ┌─────────────────┐ │  Mgmt  │  ┌───────────────────┐  │
-│  │  R-Agent      │ ──┼────────┼─▶│  SQL Parser &   │ ┼───────┼─▶│  Web UI Console   │  │
+│  │  R-Agent      │ ─┼─────────┼─▶│  SQL Parser &   │ ┼───────┼─▶│  Web UI Console   │  │
 │  │  (OS Kernel)  │  │ Port 443│  │  Policy Engine  │ │        │  │  Policy Store     │  │
 │  └───────────────┘  │         │  └─────────────────┘ │        │  │  Audit Log Vault  │  │
 │                     │         │                      │        │  │  Report Engine    │  │
