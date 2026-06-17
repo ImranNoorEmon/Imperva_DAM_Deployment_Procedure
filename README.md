@@ -161,7 +161,7 @@ This is an internal professional services reference maintained by Infosonik Syst
 <div align="center">
 
 *Infosonik Systems Limited — Professional Services Division*  
-*Imperva SecureSphere DAM | DPE Bangladesh | 2025*
+*Imperva SecureSphere DAM | 2026*
 
 </div>
 
