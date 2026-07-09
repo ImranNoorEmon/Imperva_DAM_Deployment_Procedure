@@ -61,27 +61,32 @@ Imperva_DAM_Deployment_Procedure/
 │   ├── 01-database-fundamentals.md    ← What is a database, types, security pillars
 │   ├── 02-risks-and-vulnerabilities.md← Threats, attack surfaces, native security gaps
 │   ├── 03-how-dam-works.md            ← DAM concept, architecture, three-tier model
-│   ├── 04-installation.md             ← Full 5-phase deployment procedure at DPE
 │   │
 │   └── features/
-│       ├── 05-ui-and-administration.md        ← UI, user management, RBAC, LDAP, PIM
-│       ├── 06-infrastructure-and-discovery.md ← Sites Tree, Global Objects, Discovery
-│       ├── 07-agent-configuration.md          ← Agent tuning, interfaces, exclusions
-│       ├── 08-db-interactivity.md             ← Direct Access, Stored Procs, Kerberos
-│       ├── 09-traffic-decryption.md           ← Hashed User, Connected User, Normalisation
-│       ├── 10-behavioural-profiling.md        ← SQL Profile engine, learning, blocking
-│       ├── 11-data-masking.md                 ← Data Masking, PIM
-│       ├── 12-data-classification.md          ← Classification scans, Data Types, Table Groups
-│       ├── 13-action-sets.md                  ← Action Interfaces, Action Sets, Notifications
-│       ├── 14-archiving-and-retention.md      ← Audit archiving, report retention
-│       ├── 15-audit-framework.md              ← Audit policies, aggregation, extended capture
-│       ├── 16-siem-integration.md             ← SIEM, Syslog CEF, Analytics Views
-│       ├── 17-security-policies.md            ← Policies, blocking, simulation workflow
-│       ├── 18-monitoring-and-alerting.md      ← Dashboard, violations, alerts, triage
-│       ├── 19-risk-and-assessment.md          ← CIS, DISA-STIG, PCI-DSS, Risk Console
-│       ├── 20-user-rights-management.md       ← URM scans, access paths, entitlement governance
-│       └── 21-reporting.md                    ← Report engine, scheduling, compliance reports
-│
+│   │   ├── 05-ui-and-administration.md        ← UI, user management, RBAC, LDAP, PIM
+│   │   ├── 06-infrastructure-and-discovery.md ← Sites Tree, Global Objects, Discovery
+│   │   ├── 07-agent-configuration.md          ← Agent tuning, interfaces, exclusions
+│   │   ├── 08-db-interactivity.md             ← Direct Access, Stored Procs, Kerberos
+│   │   ├── 09-traffic-decryption.md           ← Hashed User, Connected User, Normalisation
+│   │   ├── 10-behavioural-profiling.md        ← SQL Profile engine, learning, blocking
+│   │   ├── 11-data-masking.md                 ← Data Masking, PIM
+│   │   ├── 12-data-classification.md          ← Classification scans, Data Types, Table Groups
+│   │   ├── 13-action-sets.md                  ← Action Interfaces, Action Sets, Notifications
+│   │   ├── 14-archiving-and-retention.md      ← Audit archiving, report retention
+│   │   ├── 15-audit-framework.md              ← Audit policies, aggregation, extended capture
+│   │   ├── 16-siem-integration.md             ← SIEM, Syslog CEF, Analytics Views
+│   │   ├── 17-security-policies.md            ← Policies, blocking, simulation workflow
+│   │   ├── 18-monitoring-and-alerting.md      ← Dashboard, violations, alerts, triage
+│   │   ├── 19-risk-and-assessment.md          ← CIS, DISA-STIG, PCI-DSS, Risk Console
+│   │   ├── 20-user-rights-management.md       ← URM scans, access paths, entitlement governance
+│   │   └── 21-reporting.md                    ← Report engine, scheduling, compliance reports
+│   │
+│   └── installation and configuration/
+│       ├── 04.1-installation-on-linux.md
+│       ├── 04.2-installation-on-microsoft-server.md
+│       ├── 04.3-mx-server-and-gateway-configuration.md
+│       └── 04.4-agent-configuration-in-mx-server.md
+│    
 └── presentations/
     └── Imperva_DAM.pptx  ← Executive/client-facing presentation deck
 ```
