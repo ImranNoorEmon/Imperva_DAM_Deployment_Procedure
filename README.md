@@ -81,7 +81,7 @@ Imperva_DAM_Deployment_Procedure/
 │   │   ├── 20-user-rights-management.md       ← URM scans, access paths, entitlement governance
 │   │   └── 21-reporting.md                    ← Report engine, scheduling, compliance reports
 │   │
-│   └── installation and configuration/
+│   └── installation-and-configuration/
 │       ├── 04.1-installation-on-linux.md
 │       ├── 04.2-installation-on-microsoft-server.md
 │       ├── 04.3-mx-server-and-gateway-configuration.md
