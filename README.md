@@ -58,9 +58,6 @@ Imperva_DAM_Deployment_Procedure/
 ├── LICENSE                            ← MIT License
 │
 ├── docs/
-│   ├── 01-database-fundamentals.md    ← What is a database, types, security pillars
-│   ├── 02-risks-and-vulnerabilities.md← Threats, attack surfaces, native security gaps
-│   ├── 03-how-dam-works.md            ← DAM concept, architecture, three-tier model
 │   │
 │   └── features/
 │   │   ├── 05-ui-and-administration.md        ← UI, user management, RBAC, LDAP, PIM
@@ -82,11 +79,15 @@ Imperva_DAM_Deployment_Procedure/
 │   │   └── 21-reporting.md                    ← Report engine, scheduling, compliance reports
 │   │
 │   └── installation-and-configuration/
-│       ├── 04.1-installation-on-linux.md
-│       ├── 04.2-installation-on-microsoft-server.md
-│       ├── 04.3-mx-server-and-gateway-configuration.md
-│       ├── 04.4-agent-configuration-in-mx-server.md
-│       └── hardware-prerequisite-specifications.md
+│   │   ├── 04.1-installation-on-linux.md
+│   │   ├── 04.2-installation-on-microsoft-server.md
+│   │   ├── 04.3-mx-server-and-gateway-configuration.md
+│   │   ├── 04.4-agent-configuration-in-mx-server.md
+│   │   └── hardware-prerequisite-specifications.md
+│   │
+│   ├── 01-database-fundamentals.md    ← What is a database, types, security pillars
+│   ├── 02-risks-and-vulnerabilities.md← Threats, attack surfaces, native security gaps
+│   └── 03-how-dam-works.md            ← DAM concept, architecture, three-tier model
 │    
 └── presentations/
     └── Imperva_DAM.pptx  ← Executive/client-facing presentation deck
