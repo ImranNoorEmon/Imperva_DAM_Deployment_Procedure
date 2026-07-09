@@ -85,7 +85,8 @@ Imperva_DAM_Deployment_Procedure/
 │       ├── 04.1-installation-on-linux.md
 │       ├── 04.2-installation-on-microsoft-server.md
 │       ├── 04.3-mx-server-and-gateway-configuration.md
-│       └── 04.4-agent-configuration-in-mx-server.md
+│       ├── 04.4-agent-configuration-in-mx-server.md
+│       └── hardware-prerequisite-specifications.md
 │    
 └── presentations/
     └── Imperva_DAM.pptx  ← Executive/client-facing presentation deck
@@ -100,7 +101,7 @@ Imperva_DAM_Deployment_Procedure/
 | Understand what a database is and why it needs DAM | [Database Fundamentals](./docs/01-database-fundamentals.md) |
 | Understand the risks native DB security cannot address | [Risks & Vulnerabilities](./docs/02-risks-and-vulnerabilities.md) |
 | Understand how Imperva DAM works architecturally | [How DAM Works](./docs/03-how-dam-works.md) |
-| Install the agent and configure the MX console | [Installation Guide](./docs/04-installation.md) |
+| Install the agent and configure the MX console | [Installation Guide](./docs/installation and configuration) |
 | Configure user accounts, roles, LDAP, PIM | [UI & Administration](./docs/features/05-ui-and-administration.md) |
 | Set up the Sites Tree and run Discovery Scans | [Infrastructure & Discovery](./docs/features/06-infrastructure-and-discovery.md) |
 | Tune agent CPU, bind IPC/BEQ interfaces | [Agent Configuration](./docs/features/07-agent-configuration.md) |
