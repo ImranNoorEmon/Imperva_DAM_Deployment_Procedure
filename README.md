@@ -83,7 +83,7 @@ Imperva_DAM_Deployment_Procedure/
 │       └── 21-reporting.md                    ← Report engine, scheduling, compliance reports
 │
 └── presentations/
-    └── Imperva_DAM_DPE_30Slides.pptx  ← Executive/client-facing presentation deck
+    └── Imperva_DAM.pptx  ← Executive/client-facing presentation deck
 ```
 
 ---
@@ -161,7 +161,7 @@ This is an internal professional services reference maintained by Infosonik Syst
 <div align="center">
 
 *Infosonik Systems Limited — Professional Services Division*  
-*Imperva SecureSphere DAM | DPE Bangladesh | 2025*
+*Imperva SecureSphere DAM | 2026*
 
 </div>
 
@@ -236,4 +236,4 @@ The deployment on the DPE test database environment successfully validated all o
 ---
 
 *Documentation prepared by Infosonik Systems Limited — Professional Services Division*  
-*Imperva SecureSphere DAM | DPE Bangladesh | 2025*
+*Imperva SecureSphere DAM | 2026*
