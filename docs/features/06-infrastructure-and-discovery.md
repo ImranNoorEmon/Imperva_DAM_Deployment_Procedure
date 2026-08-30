@@ -44,6 +44,18 @@ Site (e.g., DPE_Datacenter)
 
 ### 7.6 Asset Discovery & Operation Modes
 
+#### Gateway Deployment (Capture) Modes
+
+Before any Server Group or policy configuration matters, the Gateway itself must be wired into the network in one of three ways. This is a **network-topology decision made at deployment time**, and it is a distinct layer from the per-Server-Group Operation Mode covered below — both are configured independently, and blocking mechanics differ depending on which Gateway mode is in use.
+
+| Mode | Configuration | Blocking behaviour |
+|---|---|---|
+| **Sniffing** | One or more Gateway NICs are set to listen to a copy of all traffic delivered via a network TAP or switch SPAN port | For connections that should be blocked, the Gateway sends a TCP **RST** packet to the protected server. Because the Gateway only ever sees a copy of the traffic, some malicious traffic may reach the protected server before it processes the RST. |
+| **Bridge** | Two Gateway NICs are paired as a bridge interface, and traffic flows through it. Uses Imperva's own **IMPVHA** protocol by default, or can participate in an existing **STP** network (Cisco PVST PDU packets are not supported in STP mode) | For all blocked connections, the Gateway immediately drops the client traffic and sends an RST to the protected server. **Web** traffic additionally gets an error page returned to the client, and further client packets on that session keep being dropped. **DB** traffic is handled differently: any further packets received from the DB client on the already-dropped session are passed through as normal, so session-teardown packets can still reach the DB server cleanly. |
+| **Reverse Proxy** | The Gateway intercepts client-to-server traffic and maintains two independent connections — one to the client, one to the protected server. Client and server never communicate directly. | Because the Gateway fully owns both legs of the connection, it can modify data in-flight (e.g. encrypting cookies) for additional hardening. Requires more CPU and memory than Sniffing or Bridge mode. |
+
+> **Two conditions, three layers:** actual traffic blocking requires (1) the Gateway to be deployed in an inline-capable mode (Bridge or Reverse Proxy — Sniffing can only reactively RST), (2) the Server Group Operation Mode set to **Active** (below), and (3) the triggering Policy Rule's Action set to **Block** (see [17 — Security Policies, "The Two-Lever Model"](17-security-policies.md#enabling-blocking--the-two-lever-model)). An Agent can additionally be configured to block independently of the Gateway's own mode — see [07 — Agent Configuration](07-agent-configuration.md) for the Agent's own Sniffing vs. Inline blocking trade-off.
+
 #### Running Service Discovery Scans
 **Navigation:** `Main > Discovery & Classification > Scans Management`
 

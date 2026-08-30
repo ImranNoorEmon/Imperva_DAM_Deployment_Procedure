@@ -104,7 +104,7 @@ Imperva_DAM_Deployment_Procedure/
 | Understand how Imperva DAM works architecturally | [How DAM Works](./docs/03-how-dam-works.md) |
 | Install the agent and configure the MX console | [Installation Guide](./docs/installation-and-configuration) |
 | Configure user accounts, roles, LDAP, PIM | [UI & Administration](./docs/features/05-ui-and-administration.md) |
-| Set up the Sites Tree and run Discovery Scans | [Infrastructure & Discovery](./docs/features/06-infrastructure-and-discovery.md) |
+| Set up the Sites Tree, run Discovery Scans, choose a Gateway deployment mode | [Infrastructure & Discovery](./docs/features/06-infrastructure-and-discovery.md) |
 | Tune agent CPU, bind IPC/BEQ interfaces | [Agent Configuration](./docs/features/07-agent-configuration.md) |
 | Set up Direct Access credentials and Kerberos | [DB Interactivity](./docs/features/08-db-interactivity.md) |
 | Fix "Hashed User" or "Connected User" in audit logs | [Traffic Decryption](./docs/features/09-traffic-decryption.md) |
@@ -114,7 +114,7 @@ Imperva_DAM_Deployment_Procedure/
 | Configure email/Syslog/SNMP notifications | [Action Sets](./docs/features/13-action-sets.md) |
 | Set up long-term audit archiving | [Archiving & Retention](./docs/features/14-archiving-and-retention.md) |
 | Configure audit policies and SIEM forwarding | [Audit Framework](./docs/features/15-audit-framework.md) + [SIEM Integration](./docs/features/16-siem-integration.md) |
-| Create policies, enable blocking, simulate safely | [Security Policies](./docs/features/17-security-policies.md) |
+| Create policies, enable blocking, simulate safely, use the 21 standard DAM use cases | [Security Policies](./docs/features/17-security-policies.md) |
 | Investigate violations and triage alerts | [Monitoring & Alerting](./docs/features/18-monitoring-and-alerting.md) |
 | Run CIS/DISA-STIG/PCI-DSS vulnerability scans | [Risk & Assessment](./docs/features/19-risk-and-assessment.md) |
 | Map who has access to what in the database | [User Rights Management](./docs/features/20-user-rights-management.md) |
