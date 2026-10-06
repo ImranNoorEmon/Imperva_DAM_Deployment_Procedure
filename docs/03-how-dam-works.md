@@ -58,6 +58,16 @@ Imperva DAM uses a **three-tier decoupled architecture** that separates traffic 
 - One Gateway can serve multiple databases and multiple agents simultaneously
 - Requires dedicated CPU and RAM due to the intensity of real-time SQL parsing
 
+**Gateway network deployment modes** — independent of the agent-based deployment used elsewhere in this repo, a Gateway can also be wired into the network in one of three ways, each with different blocking mechanics:
+
+| Mode | How traffic reaches the Gateway | How blocking works |
+|---|---|---|
+| **Sniffing** | One or more NICs passively receive a mirrored copy of traffic from a network TAP or switch SPAN port | Gateway sends a TCP **RST** to the protected server for connections to be blocked; some malicious traffic may reach the server before the RST is processed, since the Gateway only ever sees a copy |
+| **Bridge** | Traffic physically flows through a pair of bridged NICs (Imperva's own **IMPVHA** protocol by default, or standards-based **STP** — note STP mode does not support Cisco PVST PDU packets) | Blocked traffic is dropped inline and an RST is sent to the protected server; for **Web** traffic an error page is also returned to the client and further packets on that session are dropped, while for **DB** traffic any further client packets on the dropped session are still passed through normally so session teardown can complete cleanly |
+| **Reverse Proxy** | The Gateway terminates the client connection and opens an independent second connection to the protected server — client and server never communicate directly | The Gateway can manipulate the traffic in-flight (e.g. encrypting cookies) since it fully owns both legs of the conversation; requires more CPU and memory than the other two modes |
+
+> See [06 — Infrastructure and Discovery](features/06-infrastructure-and-discovery.md#gateway-deployment-capture-modes) for the full operational breakdown, and note that this is a **separate control** from the Server Group Operation Mode and the per-agent Sniffing/Inline blocking mode covered there and in [07 — Agent Configuration](features/07-agent-configuration.md).
+
 ### Tier 3 — The MX Management Server (Command Centre)
 
 - The central nervous system — does not process live traffic
